@@ -15,11 +15,13 @@ import java.io.File;
  */
 public class App {
     public static void main(String[] args) {
+
+        // Below code is to insert into the database using hiberntae
+        /*
         Alien alien = new Alien();
         alien.setAid(102);
         alien.setAname("gopal");
         alien.setColor("green");
-
 
         Configuration config = new Configuration().configure(new File("src/main/java/hibernate.cfg.xml")).addAnnotatedClass(Alien.class);
 
@@ -31,6 +33,28 @@ public class App {
         Transaction tx = session.beginTransaction();
         session.persist(alien);
         tx.commit();
+         */
+
+
+        // Fetching the data from the database using the hibernate
+        Alien alien2 = new Alien();
+
+        Configuration con = new Configuration().configure(new File("src/main/java/hibernate.cfg.xml")).addAnnotatedClass(Alien.class);
+
+        ServiceRegistry sr = new StandardServiceRegistryBuilder().applySettings(con.getProperties()).build();
+
+        SessionFactory sessionFactory = con.buildSessionFactory(sr);
+        Session ss = sessionFactory.openSession();
+        Transaction transaction = ss.beginTransaction();
+        alien2 = (Alien) ss.get(Alien.class, 102);  // the class name and the primary key
+        transaction.commit();
+
+
+        System.out.println(alien2);
+
+
+
+
 
 
     }
