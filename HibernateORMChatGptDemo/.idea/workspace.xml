@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3cf9ce8-7a03-4724-b396-028a4370b759" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/govind/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/govind/Employee.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/govind/EmployeeDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/govind/HibernateUitl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hibernate.cfg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/govind/AppTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="b3cf9ce8-7a03-4724-b396-028a4370b759" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -108,7 +98,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1724351272258</updated>
-      <workItem from="1724351273367" duration="1908000" />
+      <workItem from="1724351273367" duration="2071000" />
     </task>
     <servers />
   </component>
