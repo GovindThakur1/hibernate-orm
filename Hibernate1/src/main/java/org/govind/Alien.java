@@ -11,7 +11,9 @@ public class Alien { // POJO
     private int aid;
 
     //    @Transient // if transient, the colum will not be stored.
-    private String aname;
+//    private String aname;
+
+    private AlienName aname; // instead of string, using embeddable object.
     private String color;
 
 
@@ -23,11 +25,11 @@ public class Alien { // POJO
         this.aid = aid;
     }
 
-    public String getAname() {
+    public AlienName getAname() {
         return aname;
     }
 
-    public void setAname(String aname) {
+    public void setAname(AlienName aname) {
         this.aname = aname;
     }
 

@@ -37,6 +37,8 @@ public class App {
 
 
         // Fetching the data from the database using the hibernate
+
+        /*
         Alien alien2 = new Alien();
 
         Configuration con = new Configuration().configure(new File("src/main/java/hibernate.cfg.xml")).addAnnotatedClass(Alien.class);
@@ -48,13 +50,33 @@ public class App {
         Transaction transaction = ss.beginTransaction();
         alien2 = (Alien) ss.get(Alien.class, 102);  // the class name and the primary key
         transaction.commit();
-
-
         System.out.println(alien2);
 
+         */
 
 
+        // Below demo is for embeddable object.
 
+        AlienName an = new AlienName();
+        an.setFname("govind");
+        an.setLname("thakur");
+
+        Alien alien3 = new Alien();
+        alien3.setAid(110);
+        alien3.setAname(an);
+        alien3.setColor("yellow");
+
+
+        Configuration conf = new Configuration().configure(new File("src/main/java/hibernate.cfg.xml")).addAnnotatedClass(Alien.class);
+
+        ServiceRegistry srv = new StandardServiceRegistryBuilder().applySettings(conf.getProperties()).build();
+
+        SessionFactory sff = conf.buildSessionFactory(srv);
+
+        Session ssn = sff.openSession();
+        Transaction transaction = ssn.beginTransaction();
+        ssn.persist(alien3);
+        transaction.commit();
 
 
     }
