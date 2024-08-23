@@ -4,11 +4,14 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 import org.hibernate.service.ServiceRegistry;
+import org.hibernate.transform.Transformers;
 
 import java.io.File;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 /**
@@ -111,13 +114,22 @@ public class App {
          * **************************************************************************************************
          * Using SQL instead of HQL
          */
+        String sql = "SELECT rollno, name, marks FROM Student WHERE rollno = 7";
+        Object[] result = (Object[]) session.createNativeQuery(sql).uniqueResult();
+
+        for (Object s : result) {
+            System.out.println(s);
+        }
 
 
+        NativeQuery<Student> query3 = session.createNativeQuery("SELECT name, marks FROM Student WHERE marks > 60");
+        query3.setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
+        List<Student> stds = query3.list();
 
-
-
-
-
+        for (Object o : stds) {
+            Map m = (Map) o;
+            System.out.println(m.get("name") + " : " + m.get("marks"));
+        }
 
 
         session.getTransaction().commit();
